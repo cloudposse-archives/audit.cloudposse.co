@@ -5,11 +5,11 @@
 # audit.cloudposse.co [![Codefresh Build Status](https://g.codefresh.io/api/badges/build?repoOwner=cloudposse&repoName=audit.cloudposse.co&branch=master&pipelineName=audit.cloudposse.co&accountName=cloudposse&type=cf-1)](https://g.codefresh.io/repositories/cloudposse/audit.cloudposse.co/builds?filter=trigger:build;branch:master;service:5b234974667ab79287990636~audit.cloudposse.co) [![Latest Release](https://img.shields.io/github/release/cloudposse/audit.cloudposse.co.svg)](https://github.com/cloudposse/audit.cloudposse.co/releases) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
 
 
-Terraform/Kubernetes Reference Infrastructure for Cloud Posse Audit Organization in AWS. This account is suitable for receiving all CloudTrail logs from other accounts. 
+Terraform/Kubernetes Reference Infrastructure for Cloud Posse Audit Organization in AWS. 
 
-__NOTE:__ Before creating the Audit infrastructure, you need to provision the [Parent ("Root") Organization](https://github.com/cloudposse/root.cloudposse.co) in AWS (because it creates resources needed for all other accounts).
+This account is suitable for receiving all CloudTrail logs from other accounts. 
 
-Follow the steps in [README](https://github.com/cloudposse/root.cloudposse.co) first. You need to do it only once.
+__NOTE:__ Before creating the Audit infrastructure, you need to provision the [Parent ("Root") Organization](https://github.com/cloudposse/root.cloudposse.co) in AWS (because it creates resources needed for all other accounts). Follow the steps in [README](https://github.com/cloudposse/root.cloudposse.co) first. You need to do it only once.
 
 ## Introduction
 
@@ -108,7 +108,7 @@ assume-role
 
 __NOTE:__ Before provisioning AWS resources with Terraform, you need to create `tfstate-backend` first (S3 bucket to store Terraform state and DynamoDB table for state locking).
 
-Follow the steps in this [README](conf/tfstate-backend/README.md). You need to do it only once.
+Follow the steps in this [README](https://github.com/cloudposse/terraform-root-modules/blob/master/aws/tfstate-backend/). You need to do it only once.
 
 After `tfstate-backend` has been provisioned, follow the rest of the instructions in the order shown below.
 
@@ -145,8 +145,14 @@ terraform apply
 ```
 Available targets:
 
+  all                                 Initialize build-harness, install deps, build docker container, install wrapper script and run shell
+  build                               Build docker image
+  deps                                Install dependencies (if any)
   help                                This help screen
   help/all                            Display help for all targets
+  install                             Install wrapper script from geodesic container
+  push                                Push docker image to registry
+  run                                 Start the geodesic shell by calling wrapper script
 
 ```
 
