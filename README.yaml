@@ -10,7 +10,7 @@ license: "APACHE2"
 badges:
   - name: "Codefresh Build Status"
     image: "https://g.codefresh.io/api/badges/build?repoOwner=cloudposse&repoName=audit.cloudposse.co&branch=master&pipelineName=audit.cloudposse.co&accountName=cloudposse&type=cf-1"
-    url: "https://g.codefresh.io/repositories/cloudposse/audit.cloudposse.co/builds?filter=trigger:build;branch:master;service:5b234974667ab79287990636~audit.cloudposse.co"
+    url: "https://g.codefresh.io/pipelines/audit.cloudposse.co/builds"
   - name: "Latest Release"
     image: "https://img.shields.io/github/release/cloudposse/audit.cloudposse.co.svg"
     url: "https://github.com/cloudposse/audit.cloudposse.co/releases"

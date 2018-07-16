@@ -2,7 +2,7 @@
 
 [![Cloud Posse](https://cloudposse.com/logo-300x69.svg)](https://cloudposse.com)
 
-# audit.cloudposse.co [![Codefresh Build Status](https://g.codefresh.io/api/badges/build?repoOwner=cloudposse&repoName=audit.cloudposse.co&branch=master&pipelineName=audit.cloudposse.co&accountName=cloudposse&type=cf-1)](https://g.codefresh.io/repositories/cloudposse/audit.cloudposse.co/builds?filter=trigger:build;branch:master;service:5b234974667ab79287990636~audit.cloudposse.co) [![Latest Release](https://img.shields.io/github/release/cloudposse/audit.cloudposse.co.svg)](https://github.com/cloudposse/audit.cloudposse.co/releases) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
+# audit.cloudposse.co [![Codefresh Build Status](https://g.codefresh.io/api/badges/build?repoOwner=cloudposse&repoName=audit.cloudposse.co&branch=master&pipelineName=audit.cloudposse.co&accountName=cloudposse&type=cf-1)](https://g.codefresh.io/pipelines/audit.cloudposse.co/builds) [![Latest Release](https://img.shields.io/github/release/cloudposse/audit.cloudposse.co.svg)](https://github.com/cloudposse/audit.cloudposse.co/releases) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
 
 
 Terraform/Kubernetes Reference Infrastructure for Cloud Posse Audit Organization in AWS. 
