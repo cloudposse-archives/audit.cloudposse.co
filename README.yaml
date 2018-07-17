@@ -25,8 +25,8 @@ description: |-
 
   __NOTE:__ Before creating the Audit infrastructure, you need to provision the [Parent ("Root") Organization](https://github.com/cloudposse/root.cloudposse.co) in AWS (because it creates resources needed for all other accounts). Follow the steps in [README](https://github.com/cloudposse/root.cloudposse.co) first. You need to do it only once.
 
-  ## Introduction
 
+introduction: |-
   We use [geodesic](https://github.com/cloudposse/geodesic) to define and build world-class cloud infrastructures backed by AWS and powered by Kubernetes.
 
   `geodesic` exposes many tools that can be used to define and provision AWS and Kubernetes resources.
@@ -75,6 +75,8 @@ quickstart: |-
   ```bash
   aws-vault add --backend file cpco
   ```
+
+  __NOTE:__ You should set `AWS_VAULT_BACKEND=file` in your shell rc config (e.g. `~/.bashrc`) so it persists.
 
   For more info, see [aws-vault](https://docs.cloudposse.com/tools/aws-vault/)
 
@@ -154,13 +156,9 @@ related:
     description: "Example Terraform Reference Architecture of a Geodesic Module for a Parent (\"Root\") Organization in AWS."
     url: "https://github.com/cloudposse/root.cloudposse.co"
 
-  - name: "audit.cloudposse.co"
-    description: "Example Terraform Reference Architecture of a Geodesic Module for an Audit Logs Organization in AWS."
-    url: "https://github.com/cloudposse/audit.cloudposse.co"
-
   - name: "prod.cloudposse.co"
     description: "Example Terraform Reference Architecture of a Geodesic Module for a Production Organization in AWS."
-    url: "https://github.com/cloudposse/audit.cloudposse.co"
+    url: "https://github.com/cloudposse/prod.cloudposse.co"
 
   - name: "staging.cloudposse.co"
     description: "Example Terraform Reference Architecture of a Geodesic Module for a Staging Organization in AWS."
@@ -170,6 +168,9 @@ related:
     description: "Example Terraform Reference Architecture of a Geodesic Module for a Development Sandbox Organization in AWS."
     url: "https://github.com/cloudposse/dev.cloudposse.co"
  
+  - name: "testing.cloudposse.co"
+    description: "Example Terraform Reference Architecture that implements a Geodesic Module for an Automated Testing Organization in AWS"
+    url: "https://github.com/cloudposse/testing.cloudposse.co"
 
 references:
   - name: "Cloud Posse Documentation"

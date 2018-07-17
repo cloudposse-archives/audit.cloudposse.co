@@ -11,18 +11,6 @@ This account is suitable for receiving all CloudTrail logs from other accounts.
 
 __NOTE:__ Before creating the Audit infrastructure, you need to provision the [Parent ("Root") Organization](https://github.com/cloudposse/root.cloudposse.co) in AWS (because it creates resources needed for all other accounts). Follow the steps in [README](https://github.com/cloudposse/root.cloudposse.co) first. You need to do it only once.
 
-## Introduction
-
-We use [geodesic](https://github.com/cloudposse/geodesic) to define and build world-class cloud infrastructures backed by AWS and powered by Kubernetes.
-
-`geodesic` exposes many tools that can be used to define and provision AWS and Kubernetes resources.
-
-Here is the list of tools we use to provision the `audit.cloudposse.co` infrastructure:
-
-* [aws-vault](https://github.com/99designs/aws-vault)
-* [chamber](https://github.com/segmentio/chamber)
-* [terraform](https://www.terraform.io/)
-
 
 ---
 
@@ -38,6 +26,18 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 
 
+
+## Introduction
+
+We use [geodesic](https://github.com/cloudposse/geodesic) to define and build world-class cloud infrastructures backed by AWS and powered by Kubernetes.
+
+`geodesic` exposes many tools that can be used to define and provision AWS and Kubernetes resources.
+
+Here is the list of tools we use to provision the `audit.cloudposse.co` infrastructure:
+
+* [aws-vault](https://github.com/99designs/aws-vault)
+* [chamber](https://github.com/segmentio/chamber)
+* [terraform](https://www.terraform.io/)
 
 
 ## Quick Start
@@ -75,6 +75,8 @@ Then setup your secret credentials for AWS in `aws-vault`
 ```bash
 aws-vault add --backend file cpco
 ```
+
+__NOTE:__ You should set `AWS_VAULT_BACKEND=file` in your shell rc config (e.g. `~/.bashrc`) so it persists.
 
 For more info, see [aws-vault](https://docs.cloudposse.com/tools/aws-vault/)
 
@@ -166,10 +168,10 @@ Check out these related projects.
 - [Build Harness](https://github.com/cloudposse/dev) - Collection of Makefiles to facilitate building Golang projects, Dockerfiles, Helm charts, and more
 - [terraform-root-modules](https://github.com/cloudposse/terraform-root-modules) - Collection of Terraform "root module" invocations for provisioning reference architectures
 - [root.cloudposse.co](https://github.com/cloudposse/root.cloudposse.co) - Example Terraform Reference Architecture of a Geodesic Module for a Parent ("Root") Organization in AWS.
-- [audit.cloudposse.co](https://github.com/cloudposse/audit.cloudposse.co) - Example Terraform Reference Architecture of a Geodesic Module for an Audit Logs Organization in AWS.
-- [prod.cloudposse.co](https://github.com/cloudposse/audit.cloudposse.co) - Example Terraform Reference Architecture of a Geodesic Module for a Production Organization in AWS.
+- [prod.cloudposse.co](https://github.com/cloudposse/prod.cloudposse.co) - Example Terraform Reference Architecture of a Geodesic Module for a Production Organization in AWS.
 - [staging.cloudposse.co](https://github.com/cloudposse/staging.cloudposse.co) - Example Terraform Reference Architecture of a Geodesic Module for a Staging Organization in AWS.
 - [dev.cloudposse.co](https://github.com/cloudposse/dev.cloudposse.co) - Example Terraform Reference Architecture of a Geodesic Module for a Development Sandbox Organization in AWS.
+- [testing.cloudposse.co](https://github.com/cloudposse/testing.cloudposse.co) - Example Terraform Reference Architecture that implements a Geodesic Module for an Automated Testing Organization in AWS
 
 
 
