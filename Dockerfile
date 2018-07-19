@@ -1,31 +1,41 @@
-FROM cloudposse/terraform-root-modules:0.4.5 as terraform-root-modules
+FROM cloudposse/terraform-root-modules:0.4.8 as terraform-root-modules
 
 FROM cloudposse/geodesic:0.11.6
 
-ENV DOCKER_IMAGE "cloudposse/audit.cloudposse.co"
-ENV DOCKER_TAG "latest"
+ENV DOCKER_IMAGE="cloudposse/audit.cloudposse.co"
+ENV DOCKER_TAG="latest"
 
-ENV BANNER audit.cloudposse.co
+# Geodesic banner
+ENV BANNER="audit.cloudposse.co"
 
-# Default AWS Profile name
-ENV AWS_DEFAULT_PROFILE="cpco-audit-admin"
-
-# Parent DNS zone for the cluster
-ENV CLUSTER_NAME="audit.cloudposse.co"
-
-# AWS Region for the cluster
+# AWS Region
 ENV AWS_REGION="us-west-2"
 
-# Terraform State Bucket
-ENV TF_BUCKET="cpco-audit-terraform-state"
-ENV TF_BUCKET_REGION="us-west-2"
-ENV TF_DYNAMODB_TABLE="cpco-audit-terraform-state-lock"
+# Terraform vars
+ENV TF_VAR_region="${AWS_REGION}"
+ENV TF_VAR_account_id="205035139483"
+ENV TF_VAR_namespace="cpco"
+ENV TF_VAR_stage="audit"
+ENV TF_VAR_domain_name="audit.cloudposse.co"
+ENV TF_VAR_zone_name="audit.cloudposse.co."
 
 # chamber KMS config
-ENV CHAMBER_KMS_KEY_ALIAS="alias/cpco-audit-chamber"
+ENV CHAMBER_KMS_KEY_ALIAS="alias/${TF_VAR_namespace}-${TF_VAR_stage}-chamber"
+
+# Terraform State Bucket
+ENV TF_BUCKET_REGION="${AWS_REGION}"
+ENV TF_BUCKET="${TF_VAR_namespace}-${TF_VAR_stage}-terraform-state"
+ENV TF_DYNAMODB_TABLE="${TF_VAR_namespace}-${TF_VAR_stage}-terraform-state-lock"
+
+# Default AWS Profile name
+ENV AWS_DEFAULT_PROFILE="${TF_VAR_namespace}-${TF_VAR_stage}-admin"
 
 # Copy root modules
-COPY --from=terraform-root-modules /aws/ /conf/
+COPY --from=terraform-root-modules /aws/tfstate-backend/ /conf/tfstate-backend/
+COPY --from=terraform-root-modules /aws/account-dns/ /conf/account-dns/
+COPY --from=terraform-root-modules /aws/acm/ /conf/acm/
+COPY --from=terraform-root-modules /aws/chamber/ /conf/chamber/
+COPY --from=terraform-root-modules /aws/audit-cloudtrail/ /conf/audit-cloudtrail/
 
 # Place configuration in 'conf/' directory
 COPY conf/ /conf/
